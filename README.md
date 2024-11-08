@@ -100,26 +100,26 @@ OpenCLIP supports the csv file or the webdataset for training. We construct the 
 import csv
 
 with open(csv_path, 'w', newline='') as f:
-	csv_out = csv.writer(f, delimiter=',')
-	csv_out.writerow(['filepath', 'caption', 'supervision', 'label'])
+    csv_out = csv.writer(f, delimiter=',')
+    csv_out.writerow(['filepath', 'caption', 'supervision', 'label'])
 
     # we assume each sample is a tuple of four data
-	for sample in samples:
-		item = []
+    for sample in samples:
+        item = []
 
-		# a path for raw image 
-		item.append(sample['image_path'])
+	# a path for raw image 
+	item.append(sample['image_path'])
 
         # natural language instruction
-		prompt = "what motion should the robot arm perform to complete the instruction '{}'?" 
-		item.append(prompt.format(sample['instruction']))
+	prompt = "what motion should the robot arm perform to complete the instruction '{}'?" 
+	item.append(prompt.format(sample['instruction']))
 		
-		# natural language supervision (e.g., move the arm forward by 1cm)
-		item.append(sample['supervision'])
+	# natural language supervision (e.g., move the arm forward by 1cm)
+	item.append(sample['supervision'])
 
-		# label for natural language supervision.
-		# this can be any integer number.
-		# just ensure: set the same label for natural language supervisions that share the same low-level action 
+	# label for natural language supervision.
+	# this can be any integer number.
+	# just ensure: set the same label for natural language supervisions that share the same low-level action 
         item.append(sample['label'])
         csv_out.writerow(item)
 ```
@@ -144,7 +144,7 @@ We use [OpenCLIP](https://github.com/mlfoundations/open_clip) for model implemen
 If you found this repository useful, please consider citing:
 ```bibtex
 
-@article{kang2024clip,
+@article{kang2024cliprt,
   title={CLIP-RT: Learning Language-Conditioned Robotic Policies from Natural Language Supervision},
   author={Kang, Gi-Cheon and Kim, Junghyun and Shim, Kyuhwan and Lee, Jun Ki and Zhang, Byoung-Tak},
   journal={arXiv preprint arXiv:2411.00508},
