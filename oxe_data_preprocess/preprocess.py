@@ -391,7 +391,7 @@ if __name__ == '__main__':
 
     # The path for saving preprocessed data
     data_root = '/data/clipRT/data/oxe_data'
-    action_to_token = json.load(open('../action_to_label_pretrain.json', 'r'))
+    action_to_token = json.load(open('../docs/action_to_label_pretrain.json', 'r'))
 
     for dataset_kwargs in dataset_kwargs_list:
         # load each dataset and get the statistics of the data
